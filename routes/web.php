@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('books/no-eager-loading/', [BooksController::class, 'showNoEagerLoading']);
 Route::get('books/eager-loading/', [BooksController::class, 'showEagerLoading']);

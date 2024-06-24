@@ -8,12 +8,10 @@ use Illuminate\Database\Seeder;
 class AuthorSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Run the database seeders.
      */
-    public function run()
+    public function run(): void
     {
-        Author::factory()->times(5)->create();
+        Author::factory()->count(5)->create();
     }
 }

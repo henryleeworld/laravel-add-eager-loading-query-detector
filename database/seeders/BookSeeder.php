@@ -8,12 +8,10 @@ use Illuminate\Database\Seeder;
 class BookSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Run the database seeders.
      */
-    public function run()
+    public function run(): void
     {
-        Book::factory()->times(50)->create();
+        Book::factory()->count(50)->create();
     }
 }

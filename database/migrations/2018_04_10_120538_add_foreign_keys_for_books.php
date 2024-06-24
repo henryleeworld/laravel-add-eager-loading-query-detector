@@ -8,23 +8,18 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->integer('author_id')->after('id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreignId('author_id')->constrained()->after('id');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         //
     }

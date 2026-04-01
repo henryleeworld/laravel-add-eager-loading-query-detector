@@ -1,4 +1,4 @@
-# Laravel 12 查詢偵測器檢查是否需增加預載入
+# Laravel 13 查詢偵測器檢查是否需增加預載入
 
 引入 beyondcode 的 laravel-query-detector 套件來擴增查詢偵測器檢查是否需增加預載入，當透過屬性存取 Eloquent 關聯時，該關聯資料會被「延遲載入」。意指該關聯資料直到你第一次以屬性存取前，實際上並沒有被載入。不過，Eloquent 可以在你查詢上層模型時「預載入」關聯資料。預載入避免了 N + 1 查詢的問題。
 
@@ -27,8 +27,8 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/ADIrH8F.png)
+![](https://i.imgur.com/e2wMnmC.png)
 > 進行未使用預載入的 N + 1 查詢
 
-![](https://i.imgur.com/wtnz6tU.png)
+![](https://i.imgur.com/Vua1UdI.png)
 > 進行使用預載入的 N + 1 查詢

@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
+use Database\Factories\BookFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['author_id', 'name', 'description'])]
 class Book extends Model
 {
-    /** @use HasFactory<\Database\Factories\BookFactory> */
+    /** @use HasFactory<BookFactory> */
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = ['author_id', 'name', 'description'];
 
     /**
      * Get the author that owns the book.

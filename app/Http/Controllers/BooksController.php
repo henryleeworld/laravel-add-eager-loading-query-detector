@@ -6,17 +6,17 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
-    public function showNoEagerLoading() 
+    public function showEagerLoading() 
     {
-        $books = Book::all();
+        $books = Book::with('author')->get();
         foreach ($books as $book) {
             echo $book->author->name . PHP_EOL;
         }
     }
 
-    public function showEagerLoading() 
+    public function showNoEagerLoading() 
     {
-        $books = Book::with('author')->get();
+        $books = Book::all();
         foreach ($books as $book) {
             echo $book->author->name . PHP_EOL;
         }

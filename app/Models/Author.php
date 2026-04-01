@@ -2,25 +2,27 @@
 
 namespace App\Models;
 
+use Database\Factories\AuthorFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+#[Fillable(['name', 'lastname'])]
 class Author extends Model
 {
-    /** @use HasFactory<\Database\Factories\AuthorFactory> */
+    /** @use HasFactory<AuthorFactory> */
     use HasFactory;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
+     * Get the user's first name.
      */
-    protected $fillable = ['name', 'lastname'];
-
-    public function getFullnameAttribute()
+    protected function fullname(): Attribute
     {
-        return $this->name . ' ' . $this->lastname;
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) => $attributes['name'] . ' ' . $attributes['lastname'],
+        );
     }
 
     /**

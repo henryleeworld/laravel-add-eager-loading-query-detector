@@ -3,20 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Author;
+use Illuminate\Database\Eloquent\Factories\Attributes\UseModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Author>
- */
+#[UseModel(Author::class)]
 class AuthorFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Author::class;
-
     /**
      * Define the model's default state.
      *
